@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://hqsb8nrno2da"]
+
+[ext_resource type="Texture2D" uid="uid://c1ndmwfw0kp2h" path="res://assets/square.png" id="1_rnuto"]
+[ext_resource type="Script" uid="uid://d18o5b3a0xflu" path="res://square_obstacle.gd" id="1_wbl0d"]
+[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://violet.gd" id="2_o5yrs"]
+[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://cyan.gd" id="4_o5yrs"]
+[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://yellow.gd" id="5_lricf"]
+[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://pink.gd" id="6_xucbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbl0d"]
+size = Vector2(73, 6)
+
+[node name="SquareObstacle" type="Node2D" groups=["square_obstacle"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_wbl0d")
+
+[node name="Violet" type="Area2D" parent="." groups=["square_obstacle"]]
+script = ExtResource("2_o5yrs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Violet"]
+texture_filter = 2
+texture = ExtResource("1_rnuto")
+
+[node name="VioletCollision" type="CollisionShape2D" parent="Violet" groups=["violet_collision"]]
+position = Vector2(3.5, 37)
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Cyan" type="Area2D" parent="." groups=["square_obstacle"]]
+script = ExtResource("4_o5yrs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cyan"]
+texture_filter = 2
+texture = ExtResource("1_rnuto")
+
+[node name="CyanCollision" type="CollisionShape2D" parent="Cyan" groups=["cyan_collision"]]
+position = Vector2(-3, -37)
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Yellow" type="Area2D" parent="." groups=["square_obstacle"]]
+script = ExtResource("5_lricf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Yellow"]
+texture_filter = 2
+texture = ExtResource("1_rnuto")
+
+[node name="YellowCollision" type="CollisionShape2D" parent="Yellow" groups=["yellow_collision"]]
+position = Vector2(37, -3)
+rotation = 1.56492
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Pink" type="Area2D" parent="." groups=["square_obstacle"]]
+script = ExtResource("6_xucbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pink"]
+texture_filter = 2
+texture = ExtResource("1_rnuto")
+
+[node name="PinkCollision" type="CollisionShape2D" parent="Pink" groups=["pink_collision"]]
+position = Vector2(-37, 3)
+rotation = 1.56492
+shape = SubResource("RectangleShape2D_wbl0d")

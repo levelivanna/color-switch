@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbtrnyw8tn6iw"]
+
+[ext_resource type="Script" uid="uid://dyg3fylls8moe" path="res://circle_color.gd" id="1_riyhh"]
+[ext_resource type="Texture2D" uid="uid://b1ejxv06u4wlx" path="res://assets/circle_4colors.png" id="1_xysvy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xysvy"]
+atlas = ExtResource("1_xysvy")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riyhh"]
+radius = 13.0384
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_riyhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.09495e-13, 2.38419e-07)
+scale = Vector2(0.05, 0.05)
+texture = SubResource("AtlasTexture_xysvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_riyhh")

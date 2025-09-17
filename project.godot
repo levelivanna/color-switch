@@ -24,10 +24,6 @@ window/size/viewport_height=800
 
 player="player group"
 square_obstacle=""
-violet_collision=""
-cyan_collision=""
-yellow_collision=""
-pink_collision=""
 
 [input]
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://5gnatisvrf44"]
+
+[ext_resource type="Script" uid="uid://6ubmbii1h8io" path="res://Obstacle/Circle/circle_obstacle.gd" id="1_uif72"]
+[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://Obstacle/scripts/violet.gd" id="2_6t0no"]
+[ext_resource type="Texture2D" uid="uid://b2ka5v8mxjlcr" path="res://assets/circle_obstacle.png" id="2_u8b0y"]
+[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://Obstacle/scripts/cyan.gd" id="4_k8350"]
+[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://Obstacle/scripts/yellow.gd" id="5_784im"]
+[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://Obstacle/scripts/pink.gd" id="6_0sca5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n33sr"]
+atlas = ExtResource("2_u8b0y")
+
+[node name="CircleObstacle" type="Node2D"]
+script = ExtResource("1_uif72")
+
+[node name="Violet" type="Area2D" parent="."]
+script = ExtResource("2_6t0no")
+
+[node name="Sprite2D" type="Sprite2D" parent="Violet"]
+texture = SubResource("AtlasTexture_n33sr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Violet"]
+polygon = PackedVector2Array(1, 169, 25, 170, 57, 161, 101, 137, 138, 102, 158, 60, 172, 15, 170, 3, 206, 4, 205, 42, 179, 106, 144, 147, 90, 186, 41, 202, 0, 206)
+
+[node name="Cyan" type="Area2D" parent="."]
+script = ExtResource("4_k8350")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Cyan"]
+rotation = 1.56951
+polygon = PackedVector2Array(1, 169, 25, 170, 57, 161, 101, 137, 138, 102, 158, 60, 172, 15, 170, 3, 206, 4, 205, 42, 179, 106, 144, 147, 90, 186, 41, 202, 0, 206)
+
+[node name="Yellow" type="Area2D" parent="."]
+script = ExtResource("5_784im")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Yellow"]
+rotation = 4.70718
+polygon = PackedVector2Array(1, 169, 25, 170, 57, 161, 101, 137, 138, 102, 158, 60, 172, 15, 170, 3, 206, 4, 205, 42, 179, 106, 144, 147, 90, 186, 41, 202, 0, 206)
+
+[node name="Pink" type="Area2D" parent="."]
+script = ExtResource("6_0sca5")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Pink"]
+rotation = -3.13934
+polygon = PackedVector2Array(1, 169, 25, 170, 57, 161, 101, 137, 138, 102, 158, 60, 172, 15, 170, 3, 206, 4, 205, 42, 179, 106, 144, 147, 90, 186, 41, 202, 0, 206)

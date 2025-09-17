@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://hqsb8nrno2da"]
 
 [ext_resource type="Texture2D" uid="uid://c1ndmwfw0kp2h" path="res://assets/square.png" id="1_rnuto"]
-[ext_resource type="Script" uid="uid://d18o5b3a0xflu" path="res://square_obstacle.gd" id="1_wbl0d"]
-[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://violet.gd" id="2_o5yrs"]
-[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://cyan.gd" id="4_o5yrs"]
-[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://yellow.gd" id="5_lricf"]
-[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://pink.gd" id="6_xucbk"]
+[ext_resource type="Script" uid="uid://d18o5b3a0xflu" path="res://Obstacle/Square/square_obstacle.gd" id="1_wbl0d"]
+[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://Obstacle/scripts/violet.gd" id="2_o5yrs"]
+[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://Obstacle/scripts/cyan.gd" id="4_o5yrs"]
+[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://Obstacle/scripts/yellow.gd" id="5_lricf"]
+[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://Obstacle/scripts/pink.gd" id="6_xucbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbl0d"]
 size = Vector2(73, 6)

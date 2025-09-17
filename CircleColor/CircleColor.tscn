@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbtrnyw8tn6iw"]
 
-[ext_resource type="Script" uid="uid://dyg3fylls8moe" path="res://circle_color.gd" id="1_riyhh"]
+[ext_resource type="Script" uid="uid://dyg3fylls8moe" path="res://CircleColor/circle_color.gd" id="1_riyhh"]
 [ext_resource type="Texture2D" uid="uid://b1ejxv06u4wlx" path="res://assets/circle_4colors.png" id="1_xysvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xysvy"]

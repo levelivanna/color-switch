@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=9 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
 [ext_resource type="PackedScene" uid="uid://bbtrnyw8tn6iw" path="res://CircleColor/CircleColor.tscn" id="3_ghvq8"]
 [ext_resource type="PackedScene" uid="uid://hqsb8nrno2da" path="res://Obstacle/Square/SquareObstacle.tscn" id="4_fuqhk"]
-[ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacle/Circle/CircleObstacle.tscn" id="5_jxerj"]
 [ext_resource type="Script" uid="uid://bvgjxghdd8edq" path="res://Game/camera_2d.gd" id="6_ghvq8"]
+[ext_resource type="Script" uid="uid://byabhgi6nkuca" path="res://Game/Canvas_layer.gd" id="8_oscxy"]
+[ext_resource type="PackedScene" uid="uid://cdxa006mh5mg0" path="res://Obstacle/ObstacleSpawner.tscn" id="9_eqev2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1098, 121)
@@ -15,6 +16,12 @@ script = ExtResource("1_37esa")
 
 [node name="Ball" parent="." instance=ExtResource("2_jxerj")]
 position = Vector2(194, 781)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(202, 403)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("6_ghvq8")
+player = NodePath("../Ball")
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 808)
@@ -26,17 +33,16 @@ shape = SubResource("RectangleShape2D_0e48y")
 [node name="CircleColor" parent="." instance=ExtResource("3_ghvq8")]
 position = Vector2(200, 427)
 
-[node name="SquareObstacle" parent="." instance=ExtResource("4_fuqhk")]
-position = Vector2(203, 573)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_oscxy")
 
-[node name="CircleObstacle" parent="." instance=ExtResource("5_jxerj")]
-position = Vector2(197, 242)
-scale = Vector2(0.4, 0.4)
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(202, 403)
-scale = Vector2(0.6, 0.6)
-script = ExtResource("6_ghvq8")
+[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eqev2")]
 player = NodePath("../Ball")
+obstacles_scenes = Array[PackedScene]([ExtResource("4_fuqhk")])
 
 [connection signal="body_entered" from="CircleColor" to="." method="_on_circle_color_body_entered"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdxa006mh5mg0"]
+
+[ext_resource type="Script" uid="uid://2fpr8rhp6lfb" path="res://Obstacle/obstacle_spawner.gd" id="1_kuto4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y155f"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_kuto4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_y155f")

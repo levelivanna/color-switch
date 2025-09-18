@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbl0d"]
 size = Vector2(73, 6)
 
-[node name="SquareObstacle" type="Node2D" groups=["square_obstacle"]]
+[node name="SquareObstacle" type="Node2D" groups=["obstacle"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_wbl0d")
 

@@ -8,7 +8,7 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player and player.get_current_color() == my_color:
-		print("pasa")
+		pass
 	else:
 		player.destroy()
 		

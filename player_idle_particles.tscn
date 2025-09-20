@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bduoebti1k8r1"]
+
+[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://assets/player.png" id="1_dlhh8"]
+
+[sub_resource type="Curve" id="Curve_2yaw6"]
+_data = [Vector2(0, 0.932584), 0.0, 0.0, 0, 0, Vector2(0.955882, 0.0898877), 0.240129, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3iq4l"]
+curve = SubResource("Curve_2yaw6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rwe6p"]
+particle_flag_disable_z = true
+direction = Vector3(0, 10, 0)
+spread = 1.0
+initial_velocity_min = 50.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_3iq4l")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 3
+texture = ExtResource("1_dlhh8")
+trail_sections = 3
+trail_section_subdivisions = 3
+process_material = SubResource("ParticleProcessMaterial_rwe6p")

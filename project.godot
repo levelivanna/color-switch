@@ -15,6 +15,10 @@ run/main_scene="uid://ci476flt6hl7n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GLOBALS="*res://globals/globals.gd"
+
 [display]
 
 window/size/viewport_width=400
@@ -23,7 +27,6 @@ window/size/viewport_height=800
 [global_group]
 
 player="player group"
-square_obstacle=""
 obstacle="obstacle group"
 
 [input]

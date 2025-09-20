@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
-[ext_resource type="PackedScene" uid="uid://bbtrnyw8tn6iw" path="res://CircleColor/CircleColor.tscn" id="3_ghvq8"]
 [ext_resource type="PackedScene" uid="uid://hqsb8nrno2da" path="res://Obstacle/Square/SquareObstacle.tscn" id="4_fuqhk"]
 [ext_resource type="Script" uid="uid://bvgjxghdd8edq" path="res://Game/camera_2d.gd" id="6_ghvq8"]
+[ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacle/Circle/CircleObstacle.tscn" id="8_eqev2"]
 [ext_resource type="Script" uid="uid://byabhgi6nkuca" path="res://Game/Canvas_layer.gd" id="8_oscxy"]
 [ext_resource type="PackedScene" uid="uid://cdxa006mh5mg0" path="res://Obstacle/ObstacleSpawner.tscn" id="9_eqev2"]
 
@@ -30,9 +30,6 @@ position = Vector2(0, 808)
 position = Vector2(545, 49)
 shape = SubResource("RectangleShape2D_0e48y")
 
-[node name="CircleColor" parent="." instance=ExtResource("3_ghvq8")]
-position = Vector2(200, 427)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("8_oscxy")
 
@@ -43,6 +40,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eqev2")]
 player = NodePath("../Ball")
-obstacles_scenes = Array[PackedScene]([ExtResource("4_fuqhk")])
-
-[connection signal="body_entered" from="CircleColor" to="." method="_on_circle_color_body_entered"]
+obstacles_scenes = Array[PackedScene]([ExtResource("4_fuqhk"), ExtResource("8_eqev2")])

@@ -1,11 +1,11 @@
 extends CharacterBody2D
-var pink = Color("#FF007F")
-var cyan = Color("#00CFFF")
-var yellow = Color("#FFD700")
-var violet = Color("#8A2BE2")
+var green = Color("#A5F8CE")
+var orange = Color("#FEC9A7")
+var yellow = Color("#FEFD97")
+var violet = Color("#B49FDC")
 @export var score = 0
-@export var colors: Array[Color] = [pink, yellow, cyan, violet]
-var current_color: Color = pink
+@export var colors: Array[Color] = [green, yellow, orange, violet]
+var current_color: Color = green
 var screen_center = 0.0
 
 const SPEED = 0.0
@@ -38,8 +38,8 @@ func get_current_color():
 	return current_color
 	
 func destroy():
-	#queue_free()
-	pass
+	GLOBALS.create_particle('player_explosion', global_position)
+	queue_free()
 	
 func add_score(points: int):
 	score = score + points

@@ -7,6 +7,7 @@ var obstacle_distance: float = 300.0
 var last_obstacle_position_y = 0
 
 
+
 var viewport_size_x = 0.0
 var viewport_size_y = 0.0
 
@@ -48,7 +49,6 @@ func _spawn_obstacle(position_y: float):
 	var obstacle_scene = get_obstacle_scene()
 	var obstacle = obstacle_scene.instantiate()
 	obstacle.set_player(player)
-	print(obstacle)
 	add_child(obstacle)
 	obstacle.global_position = Vector2(viewport_size_x / 2, position_y)
 

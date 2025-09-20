@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ka5v8mxjlcr"
-path="res://.godot/imported/circle_obstacle.png-3ca1340ac4307ad82918c0b675102932.ctex"
+uid="uid://p2nrwkknxfta"
+path="res://.godot/imported/square-obstacle.png-60ceb8fbd42103824aabf01df675998d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/circle_obstacle.png"
-dest_files=["res://.godot/imported/circle_obstacle.png-3ca1340ac4307ad82918c0b675102932.ctex"]
+source_file="res://assets/square-obstacle.png"
+dest_files=["res://.godot/imported/square-obstacle.png-60ceb8fbd42103824aabf01df675998d.ctex"]
 
 [params]
 

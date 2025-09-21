@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwq6boeism0s7"]
+
+[ext_resource type="Script" uid="uid://dbosxwdcl1uwg" path="res://doble_molino.gd" id="1_7knxd"]
+[ext_resource type="PackedScene" uid="uid://c5aq3hvbh4jqs" path="res://Obstacle/Molino/Molino.tscn" id="2_y4hf5"]
+
+[node name="Double_molino" type="Node2D"]
+script = ExtResource("1_7knxd")
+
+[node name="Molino" parent="." instance=ExtResource("2_y4hf5")]
+position = Vector2(-76, 0)
+rotation = -3.1414
+scale = Vector2(1, -1)
+
+[node name="Molino2" parent="." instance=ExtResource("2_y4hf5")]
+position = Vector2(75, -1)

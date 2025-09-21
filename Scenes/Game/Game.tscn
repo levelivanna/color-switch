@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=13 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Scenes/Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://byabhgi6nkuca" path="res://Scenes/Game/Canvas_layer.gd" id="8_oscxy"]
 [ext_resource type="PackedScene" uid="uid://cdxa006mh5mg0" path="res://Obstacle/ObstacleSpawner.tscn" id="9_eqev2"]
 [ext_resource type="PackedScene" uid="uid://c5aq3hvbh4jqs" path="res://Obstacle/Molino/Molino.tscn" id="9_m1o7v"]
+[ext_resource type="PackedScene" uid="uid://den4o1fninv6b" path="res://Obstacle/Double_Circle/Double_Circle.tscn" id="10_3586x"]
+[ext_resource type="PackedScene" uid="uid://dwq6boeism0s7" path="res://Obstacle/Molino/Double_molino.tscn" id="11_10ki7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1098, 121)
@@ -47,4 +49,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eqev2")]
 player = NodePath("../Ball")
-obstacles_scenes = Array[PackedScene]([ExtResource("4_fuqhk"), ExtResource("8_eqev2"), ExtResource("9_m1o7v")])
+obstacles_scenes = Array[PackedScene]([ExtResource("8_eqev2"), ExtResource("10_3586x"), ExtResource("9_m1o7v"), ExtResource("11_10ki7"), ExtResource("4_fuqhk")])

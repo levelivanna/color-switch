@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5aq3hvbh4jqs"]
+
+[ext_resource type="Script" uid="uid://v8vbeqfhgnne" path="res://Obstacle/Molino/molino.gd" id="1_wvl5u"]
+[ext_resource type="Texture2D" uid="uid://dxggghkbe0bt3" path="res://Assets/molino.png" id="2_d2dl7"]
+[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://Obstacle/scripts/violet.gd" id="3_tm5f1"]
+[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://Obstacle/scripts/orange.gd" id="4_n8lo1"]
+[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://Obstacle/scripts/yellow.gd" id="5_du5ka"]
+[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://Obstacle/scripts/green.gd" id="6_kwh8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyvl4"]
+size = Vector2(59.512, 18.0019)
+
+[node name="Molino" type="Node2D"]
+script = ExtResource("1_wvl5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d2dl7")
+
+[node name="Violet" type="Area2D" parent="."]
+script = ExtResource("3_tm5f1")
+
+[node name="VioletCollision" type="CollisionShape2D" parent="Violet"]
+position = Vector2(38.9136, 0.00110674)
+rotation = 3.1397
+shape = SubResource("RectangleShape2D_nyvl4")
+
+[node name="Orange" type="Area2D" parent="."]
+script = ExtResource("4_n8lo1")
+
+[node name="OrangeCollision" type="CollisionShape2D" parent="Orange"]
+position = Vector2(2.97189, -38.2094)
+rotation = 1.58649
+shape = SubResource("RectangleShape2D_nyvl4")
+
+[node name="Yellow" type="Area2D" parent="."]
+script = ExtResource("5_du5ka")
+
+[node name="YellowCollision" type="CollisionShape2D" parent="Yellow"]
+position = Vector2(-37, 0)
+rotation = 0.00353503
+shape = SubResource("RectangleShape2D_nyvl4")
+
+[node name="Green" type="Area2D" parent="."]
+script = ExtResource("6_kwh8o")
+
+[node name="GreenCollision" type="CollisionShape2D" parent="Green"]
+position = Vector2(3.00905, 39.5414)
+rotation = 1.56492
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nyvl4")

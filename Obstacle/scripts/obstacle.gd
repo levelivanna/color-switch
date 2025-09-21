@@ -49,6 +49,7 @@ func set_random_rotation():
 func set_star_position():
 	if not star:
 		return
+	get_tree().current_scene.add_child(star)
 	star.position = global_position
 	
 func set_circle_color_position():

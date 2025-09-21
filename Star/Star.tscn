@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx1m5ja6pvi4l"]
+[gd_scene load_steps=7 format=3 uid="uid://cx1m5ja6pvi4l"]
 
 [ext_resource type="Script" uid="uid://b2x4rqa84lijy" path="res://Star/star.gd" id="1_xrr36"]
-[ext_resource type="Texture2D" uid="uid://bvqtrauya6dls" path="res://assets/star.png" id="2_35hlw"]
+[ext_resource type="Texture2D" uid="uid://bvqtrauya6dls" path="res://Assets/star.png" id="2_35hlw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h31sq"]
 radius = 17.0
+
+[sub_resource type="Animation" id="Animation_h31sq"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_ge4lp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jd0h5"]
+_data = {
+&"RESET": SubResource("Animation_ge4lp"),
+&"pulse": SubResource("Animation_h31sq")
+}
 
 [node name="Star" type="Area2D"]
 script = ExtResource("1_xrr36")
@@ -14,3 +51,9 @@ texture = ExtResource("2_35hlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h31sq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_jd0h5")
+}

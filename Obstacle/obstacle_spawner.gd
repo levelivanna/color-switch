@@ -6,8 +6,6 @@ extends Node2D
 var obstacle_distance: float = 300.0
 var last_obstacle_position_y = 0
 
-
-
 var viewport_size_x = 0.0
 var viewport_size_y = 0.0
 
@@ -16,19 +14,11 @@ func _ready() -> void:
 	viewport_size_x = get_viewport().size.x
 	viewport_size_y = get_viewport().size.y
 	spawn_distance = viewport_size_y * 1.5
-	_set_first_obstacles()
-	
+	last_obstacle_position_y = viewport_size_y
 
 func _process(delta: float) -> void:
 	_process_spawner()
-	
-func _set_first_obstacles():
-	if not player:
-		return
-	last_obstacle_position_y = viewport_size_y - obstacle_distance
-	_spawn_obstacle(last_obstacle_position_y)
 
-	
 func _filter_obstacle_child(child):
 	return child.is_in_group('obstacle')
 	
@@ -49,8 +39,10 @@ func _spawn_obstacle(position_y: float):
 	var obstacle_scene = get_obstacle_scene()
 	var obstacle = obstacle_scene.instantiate()
 	obstacle.set_player(player)
-	add_child(obstacle)
 	obstacle.global_position = Vector2(viewport_size_x / 2, position_y)
+	add_child(obstacle)
+	obstacle.set_star_position()
+	obstacle.set_circle_color_position()
 
 func get_obstacle_scene():
 	return obstacles_scenes.pick_random()

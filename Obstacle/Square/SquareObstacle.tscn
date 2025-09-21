@@ -1,19 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://hqsb8nrno2da"]
+[gd_scene load_steps=8 format=3 uid="uid://hqsb8nrno2da"]
 
 [ext_resource type="Script" uid="uid://d18o5b3a0xflu" path="res://Obstacle/Square/square_obstacle.gd" id="1_wbl0d"]
 [ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://Obstacle/scripts/violet.gd" id="2_o5yrs"]
-[ext_resource type="PackedScene" uid="uid://cx1m5ja6pvi4l" path="res://Star/Star.tscn" id="2_qrk84"]
 [ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://Obstacle/scripts/orange.gd" id="4_o5yrs"]
 [ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://Obstacle/scripts/yellow.gd" id="5_lricf"]
 [ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://Obstacle/scripts/green.gd" id="6_xucbk"]
-[ext_resource type="Texture2D" uid="uid://p2nrwkknxfta" path="res://assets/square-obstacle.png" id="7_qrk84"]
+[ext_resource type="Texture2D" uid="uid://p2nrwkknxfta" path="res://Assets/square-obstacle.png" id="7_qrk84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbl0d"]
 size = Vector2(131.341, 15.005)
 
 [node name="SquareObstacle" type="Node2D" groups=["obstacle"]]
 script = ExtResource("1_wbl0d")
-star_scene = ExtResource("2_qrk84")
 
 [node name="Violet" type="Area2D" parent="."]
 script = ExtResource("2_o5yrs")

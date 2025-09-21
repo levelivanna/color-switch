@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck52xfnssjf45"
-path="res://.godot/imported/circle-obstacle.png-9956bef28705ee80cec0caffd97d52b2.ctex"
+path="res://.godot/imported/circle-obstacle.png-973218a371d3614e2bac5d5acf9daea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/circle-obstacle.png"
-dest_files=["res://.godot/imported/circle-obstacle.png-9956bef28705ee80cec0caffd97d52b2.ctex"]
+source_file="res://Assets/circle-obstacle.png"
+dest_files=["res://.godot/imported/circle-obstacle.png-973218a371d3614e2bac5d5acf9daea0.ctex"]
 
 [params]
 

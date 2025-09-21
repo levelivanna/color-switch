@@ -15,9 +15,13 @@ run/main_scene="uid://ci476flt6hl7n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/channel_disable_threshold_db=-29.9
+
 [autoload]
 
-GLOBALS="*res://globals/globals.gd"
+GLOBALS="*res://Globals/globals.gd"
 
 [display]
 

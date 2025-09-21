@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cn7k0s701cqt3"
+path="res://.godot/imported/Star Pickup.ogg-1183bf6b4338f2401851d73d2894177d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Effects/Star Pickup.ogg"
+dest_files=["res://.godot/imported/Star Pickup.ogg-1183bf6b4338f2401851d73d2894177d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

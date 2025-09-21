@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw2fegbitnv1m"]
+[gd_scene load_steps=8 format=3 uid="uid://dw2fegbitnv1m"]
 
-[ext_resource type="Script" uid="uid://dw3grkk3txtfe" path="res://Player/ball.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://assets/player.png" id="2_q3lat"]
-[ext_resource type="PackedScene" uid="uid://bduoebti1k8r1" path="res://player_idle_particles.tscn" id="3_tok1r"]
+[ext_resource type="Script" uid="uid://dw3grkk3txtfe" path="res://Player/player.gd" id="1_kpjcp"]
+[ext_resource type="AudioStream" uid="uid://nvkn6g2w1ykp" path="res://Sounds/Effects/Jump Balll.ogg" id="2_ddoul"]
+[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://Assets/player.png" id="2_q3lat"]
+[ext_resource type="PackedScene" uid="uid://bduoebti1k8r1" path="res://Player/player_idle_particles.tscn" id="3_tok1r"]
+[ext_resource type="AudioStream" uid="uid://cn7k0s701cqt3" path="res://Sounds/Effects/Star Pickup.ogg" id="5_8g4oa"]
+[ext_resource type="AudioStream" uid="uid://c8r3ddwqqr2ma" path="res://Sounds/Effects/circle_color.ogg" id="6_6ysni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtcfe"]
 radius = 12.0
@@ -22,3 +25,15 @@ texture = ExtResource("2_q3lat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wtcfe")
+
+[node name="JumpBall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ddoul")
+volume_db = 5.0
+
+[node name="StarPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8g4oa")
+volume_db = 10.0
+
+[node name="CircleColor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6ysni")
+volume_db = 7.0

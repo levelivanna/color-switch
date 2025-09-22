@@ -10,6 +10,7 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.add_score(points)
+		GLOBALS.create_particle('star_explosion', global_position)
 		destroy()
 
 func destroy():

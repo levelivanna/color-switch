@@ -1,36 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://gciok4vgkxka"]
+[gd_scene load_steps=5 format=3 uid="uid://gciok4vgkxka"]
 
 [ext_resource type="Script" uid="uid://cxs3knvadbu08" path="res://Scenes/Menu/Menu.gd" id="1_gimvo"]
+[ext_resource type="Texture2D" uid="uid://c7gul1v4ukvco" path="res://Assets/ui/button_play_hover.svg" id="3_6fkr2"]
+[ext_resource type="Texture2D" uid="uid://cluwj4au23hjs" path="res://Assets/ui/button_play.svg" id="3_28cy5"]
+[ext_resource type="Texture2D" uid="uid://cbwtwepubrs6w" path="res://Assets/ui/button_credits.svg" id="4_6fkr2"]
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 401.0
 offset_bottom = 804.0
 script = ExtResource("1_gimvo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 401.0
-offset_bottom = 804.0
+offset_bottom = 803.0
+alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Jugar"
+alignment = 1
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
+[node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer/BoxContainer"]
 layout_mode = 2
-text = "Creditos"
+size_flags_vertical = 4
+texture_normal = ExtResource("3_28cy5")
+texture_hover = ExtResource("3_6fkr2")
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="BoxContainer2" type="BoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Ajustes"
+alignment = 1
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="HBoxContainer/VBoxContainer/BoxContainer2"]
 layout_mode = 2
-text = "Salir"
+size_flags_vertical = 4
+texture_normal = ExtResource("4_6fkr2")
 
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BoxContainer2/Credits" to="." method="_on_credits_pressed"]

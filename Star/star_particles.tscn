@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://kmmp4iievfv"]
+
+[node name="StarParticles" type="Node2D"]

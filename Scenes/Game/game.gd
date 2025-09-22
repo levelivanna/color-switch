@@ -1,8 +1,8 @@
 extends Node2D
+@onready var pause_controller: Node2D = $Pause
 
 func _ready() -> void:
-	pass
+	GLOBALS.set_score(0)
 
-func _process(delta: float) -> void:
-	pass
- 
+func _on_pause_button_pressed() -> void:
+	pause_controller.pause()

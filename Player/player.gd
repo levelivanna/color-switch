@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 var current_color: Color = GLOBALS.COLOR.GREEN
 var screen_center = 0.0
-@export var score = 0
 @export var colors: Array[Color] = [
 	GLOBALS.COLOR.GREEN,
 	GLOBALS.COLOR.YELLOW,
@@ -57,7 +56,8 @@ func play_dead_sound():
 	
 func add_score(points: int):
 	star_pickup.play()
-	score = score + points
+	var current_score = GLOBALS.get_score() + points
+	GLOBALS.set_score(current_score)
 
 func get_score():
-	return score
+	return GLOBALS.get_score()

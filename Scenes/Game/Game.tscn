@@ -1,19 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=17 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Scenes/Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
 [ext_resource type="AudioStream" uid="uid://cg13lrv1n388a" path="res://Sounds/Music/Background_music.ogg" id="2_oscxy"]
 [ext_resource type="PackedScene" uid="uid://hqsb8nrno2da" path="res://Obstacle/Square/SquareObstacle.tscn" id="4_fuqhk"]
 [ext_resource type="Script" uid="uid://bvgjxghdd8edq" path="res://Scenes/Game/camera_2d.gd" id="6_ghvq8"]
+[ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="6_ti1oi"]
+[ext_resource type="PackedScene" uid="uid://dwq6boeism0s7" path="res://Obstacle/Double_Molino/Double_molino.tscn" id="7_1q8bt"]
 [ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacle/Circle/CircleObstacle.tscn" id="8_eqev2"]
 [ext_resource type="Script" uid="uid://byabhgi6nkuca" path="res://Scenes/Game/Canvas_layer.gd" id="8_oscxy"]
 [ext_resource type="PackedScene" uid="uid://cdxa006mh5mg0" path="res://Obstacle/ObstacleSpawner.tscn" id="9_eqev2"]
 [ext_resource type="PackedScene" uid="uid://c5aq3hvbh4jqs" path="res://Obstacle/Molino/Molino.tscn" id="9_m1o7v"]
 [ext_resource type="PackedScene" uid="uid://den4o1fninv6b" path="res://Obstacle/Double_Circle/Double_Circle.tscn" id="10_3586x"]
-[ext_resource type="PackedScene" uid="uid://dwq6boeism0s7" path="res://Obstacle/Molino/Double_molino.tscn" id="11_10ki7"]
+[ext_resource type="Texture2D" uid="uid://bneamsjkopmo1" path="res://Assets/ui/pause.svg" id="13_edkrd"]
+[ext_resource type="PackedScene" uid="uid://dxyoal2p2n0ig" path="res://Scenes/Pause/pause.tscn" id="14_bsqcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1098, 121)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ti1oi"]
+font = ExtResource("6_ti1oi")
+font_size = 30
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_37esa")
@@ -39,14 +46,37 @@ position = Vector2(0, 808)
 position = Vector2(545, 49)
 shape = SubResource("RectangleShape2D_0e48y")
 
+[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eqev2")]
+player = NodePath("../Ball")
+obstacles_scenes = Array[PackedScene]([ExtResource("8_eqev2"), ExtResource("10_3586x"), ExtResource("7_1q8bt"), ExtResource("4_fuqhk"), ExtResource("9_m1o7v")])
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("8_oscxy")
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 52.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("6_ti1oi")
+label_settings = SubResource("LabelSettings_ti1oi")
 metadata/_edit_use_anchors_ = true
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eqev2")]
-player = NodePath("../Ball")
-obstacles_scenes = Array[PackedScene]([ExtResource("8_eqev2"), ExtResource("10_3586x"), ExtResource("9_m1o7v"), ExtResource("11_10ki7"), ExtResource("4_fuqhk")])
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 399.0
+offset_bottom = 40.0
+alignment = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/HBoxContainer"]
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/Node2D"]
+offset_left = 348.0
+offset_top = 20.0
+offset_right = 388.0
+offset_bottom = 60.0
+texture_normal = ExtResource("13_edkrd")
+
+[node name="Pause" parent="." instance=ExtResource("14_bsqcq")]
+z_index = 1000
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Node2D/PauseButton" to="." method="_on_pause_button_pressed"]

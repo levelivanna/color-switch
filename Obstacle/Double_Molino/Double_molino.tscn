@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwq6boeism0s7"]
 
-[ext_resource type="Script" uid="uid://dbosxwdcl1uwg" path="res://doble_molino.gd" id="1_7knxd"]
+[ext_resource type="Script" uid="uid://dbosxwdcl1uwg" path="res://Obstacle/Double_Molino/doble_molino.gd" id="1_7knxd"]
 [ext_resource type="PackedScene" uid="uid://c5aq3hvbh4jqs" path="res://Obstacle/Molino/Molino.tscn" id="2_y4hf5"]
 
 [node name="Double_molino" type="Node2D"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="color switch"
-run/main_scene="uid://ci476flt6hl7n"
+run/main_scene="uid://gciok4vgkxka"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxyoal2p2n0ig"]
+
+[ext_resource type="Script" uid="uid://b4o3wjd1iwrji" path="res://Scenes/Pause/pause.gd" id="1_l27xf"]
+[ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="2_y4k80"]
+[ext_resource type="Texture2D" uid="uid://crtul38n65pp3" path="res://Assets/ui/reanudar.svg" id="3_mdqjh"]
+
+[node name="Pause" type="Node2D"]
+script = ExtResource("1_l27xf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 401.0
+offset_bottom = 800.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 0.784314)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 394.0
+offset_bottom = 792.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_y4k80")
+theme_override_font_sizes/font_size = 40
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("3_mdqjh")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

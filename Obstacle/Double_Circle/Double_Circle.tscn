@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://den4o1fninv6b"]
 
-[ext_resource type="Script" uid="uid://b83puinf40l0k" path="res://double_circle.gd" id="1_3dfh5"]
+[ext_resource type="Script" uid="uid://b83puinf40l0k" path="res://Obstacle/Double_Circle/double_circle.gd" id="1_3dfh5"]
 [ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacle/Circle/CircleObstacle.tscn" id="2_33wyx"]
 
 [node name="Double_Circle" type="Node2D"]

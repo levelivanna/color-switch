@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=18 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Scenes/Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://den4o1fninv6b" path="res://Obstacle/Double_Circle/Double_Circle.tscn" id="10_3586x"]
 [ext_resource type="Texture2D" uid="uid://bneamsjkopmo1" path="res://Assets/ui/pause.svg" id="13_edkrd"]
 [ext_resource type="PackedScene" uid="uid://dxyoal2p2n0ig" path="res://Scenes/Pause/pause.tscn" id="14_bsqcq"]
+[ext_resource type="PackedScene" uid="uid://dp7tp5oyrrmqp" path="res://Scenes/TransitionManager/transition_manager.tscn" id="15_jf0ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(1098, 121)
@@ -78,5 +79,7 @@ texture_normal = ExtResource("13_edkrd")
 
 [node name="Pause" parent="." instance=ExtResource("14_bsqcq")]
 z_index = 1000
+
+[node name="TransitionManager" parent="." instance=ExtResource("15_jf0ra")]
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Node2D/PauseButton" to="." method="_on_pause_button_pressed"]

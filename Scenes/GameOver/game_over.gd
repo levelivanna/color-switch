@@ -1,11 +1,13 @@
 extends Control
 @onready var score_value: Label = $CenterContainer/VBoxContainer/HBoxContainer/ScoreValue
 @onready var record_value: Label = $CenterContainer/VBoxContainer/HBoxContainer2/RecordValue
+@onready var transition_manager: CanvasLayer = $TransitionManager
 
 
 func _ready() -> void:
 	_process_score()
 	set_text_values()
+	transition_manager.fade_out()
 
 func _process_score():
 	var score = GLOBALS.get_score()

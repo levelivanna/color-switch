@@ -8,6 +8,3 @@ func _ready() -> void:
 func _on_pause_button_pressed() -> void:
 	pause_controller.pause()
 	
-func _process(delta: float) -> void:
-	if not player:
-		print('game over')

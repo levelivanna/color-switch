@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://blglrsongw6yc"]
+[gd_scene load_steps=13 format=3 uid="uid://blglrsongw6yc"]
 
 [ext_resource type="Script" uid="uid://btbhj0wwvlcv8" path="res://Scenes/GameOver/game_over.gd" id="1_njyea"]
 [ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="2_v7jj6"]
-[ext_resource type="Texture2D" uid="uid://72c4fwsoborh" path="res://Assets/ui/button_menu.svg" id="3_xvt1b"]
-[ext_resource type="Texture2D" uid="uid://dfifyfvnqqyyf" path="res://Assets/ui/button_retry.svg" id="4_d0ycw"]
+[ext_resource type="Texture2D" uid="uid://dkxg0b4g3olw3" path="res://Assets/ui/button_menu.svg" id="3_xvt1b"]
+[ext_resource type="Texture2D" uid="uid://d4cmcnb4y2iqg" path="res://Assets/ui/button_retry_pressed.svg" id="4_0odlr"]
+[ext_resource type="Texture2D" uid="uid://clnjlw5tcge75" path="res://Assets/ui/button_retry.svg" id="4_d0ycw"]
+[ext_resource type="Texture2D" uid="uid://76yq4aujosrj" path="res://Assets/ui/button_menu_pressed.svg" id="5_d0ycw"]
+[ext_resource type="Texture2D" uid="uid://dfmqrudn13sqx" path="res://Assets/ui/button_retry_hover.svg" id="5_qyvba"]
 [ext_resource type="PackedScene" uid="uid://dp7tp5oyrrmqp" path="res://Scenes/TransitionManager/transition_manager.tscn" id="5_v7jj6"]
+[ext_resource type="Texture2D" uid="uid://c37ud7ytt70j0" path="res://Assets/ui/button_menu_hover.svg" id="6_y6fa8"]
+[ext_resource type="AudioStream" uid="uid://bx5375k61jios" path="res://Sounds/Effects/gameover.wav" id="10_qyvba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_apf3g"]
 font = ExtResource("2_v7jj6")
@@ -85,12 +90,21 @@ theme_override_constants/separation = -40
 [node name="Reintentar" type="TextureButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_d0ycw")
+texture_pressed = ExtResource("4_0odlr")
+texture_hover = ExtResource("5_qyvba")
 
 [node name="MenuPrincipal" type="TextureButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_xvt1b")
+texture_pressed = ExtResource("5_d0ycw")
+texture_hover = ExtResource("6_y6fa8")
 
 [node name="TransitionManager" parent="." instance=ExtResource("5_v7jj6")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qyvba")
+volume_db = -3.0
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Reintentar" to="." method="_on_reintentar_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/MenuPrincipal" to="." method="_on_menu_principal_pressed"]

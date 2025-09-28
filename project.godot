@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="color switch"
+config/name="Jumping ball"
 run/main_scene="uid://gciok4vgkxka"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bvebnqc6pc83a"
+config/icon="uid://dbp2p5ug7twyr"
+boot_splash/minimum_display_time=1000
 
 [audio]
 
@@ -45,3 +47,4 @@ jump={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_2d=1

@@ -2,23 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dw3grkk3txtfe" path="res://Player/player.gd" id="1_kpjcp"]
 [ext_resource type="AudioStream" uid="uid://nvkn6g2w1ykp" path="res://Sounds/Effects/Jump Balll.ogg" id="2_ddoul"]
-[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://Assets/player.png" id="2_q3lat"]
-[ext_resource type="PackedScene" uid="uid://bduoebti1k8r1" path="res://Player/player_idle_particles.tscn" id="3_tok1r"]
+[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://Assets/parts/player.png" id="2_q3lat"]
 [ext_resource type="AudioStream" uid="uid://cn7k0s701cqt3" path="res://Sounds/Effects/Star Pickup.ogg" id="5_8g4oa"]
 [ext_resource type="AudioStream" uid="uid://c8r3ddwqqr2ma" path="res://Sounds/Effects/circle_color.ogg" id="6_6ysni"]
+[ext_resource type="Script" uid="uid://rfdmrtj7e75e" path="res://Player/player_controller.gd" id="7_vlldt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtcfe"]
 radius = 12.0
 
-[node name="Ball" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_kpjcp")
-
-[node name="GPUParticles2D" parent="." instance=ExtResource("3_tok1r")]
-position = Vector2(0, 6)
-scale = Vector2(0.7, 0.7)
-emitting = false
-amount = 1
-lifetime = 0.33
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_q3lat")
@@ -37,3 +30,6 @@ volume_db = 10.0
 [node name="CircleColor" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6ysni")
 volume_db = 12.0
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("7_vlldt")

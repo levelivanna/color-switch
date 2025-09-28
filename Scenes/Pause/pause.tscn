@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxyoal2p2n0ig"]
+[gd_scene load_steps=6 format=3 uid="uid://dxyoal2p2n0ig"]
 
 [ext_resource type="Script" uid="uid://b4o3wjd1iwrji" path="res://Scenes/Pause/pause.gd" id="1_l27xf"]
 [ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="2_y4k80"]
-[ext_resource type="Texture2D" uid="uid://crtul38n65pp3" path="res://Assets/ui/reanudar.svg" id="3_mdqjh"]
+[ext_resource type="Texture2D" uid="uid://c5fv5coa64i8e" path="res://Assets/ui/button_resume.svg" id="3_tq04t"]
+[ext_resource type="Texture2D" uid="uid://b4o772a867xkj" path="res://Assets/ui/button_resume_pressed.svg" id="4_pacd7"]
+[ext_resource type="Texture2D" uid="uid://cc61h2paobais" path="res://Assets/ui/button_resume_hover.svg" id="5_8yktd"]
 
 [node name="Pause" type="Node2D"]
 script = ExtResource("1_l27xf")
@@ -29,6 +31,8 @@ horizontal_alignment = 1
 [node name="ResumeButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-texture_normal = ExtResource("3_mdqjh")
+texture_normal = ExtResource("3_tq04t")
+texture_pressed = ExtResource("4_pacd7")
+texture_hover = ExtResource("5_8yktd")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

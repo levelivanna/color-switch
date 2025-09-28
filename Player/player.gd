@@ -2,16 +2,18 @@ extends CharacterBody2D
 
 var current_color: Color = GLOBALS.COLOR.GREEN
 var screen_center = 0.0
+var is_damaged = false
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var jump_ball: AudioStreamPlayer2D = $JumpBall
+@onready var star_pickup: AudioStreamPlayer2D = $StarPickup
+@onready var circle_color: AudioStreamPlayer2D = $CircleColor
 @export var colors: Array[Color] = [
 	GLOBALS.COLOR.GREEN,
 	GLOBALS.COLOR.YELLOW,
 	GLOBALS.COLOR.ORANGE,
 	GLOBALS.COLOR.VIOLET
 ]
-@onready var jump_ball: AudioStreamPlayer2D = $JumpBall
-@onready var star_pickup: AudioStreamPlayer2D = $StarPickup
-@onready var circle_color: AudioStreamPlayer2D = $CircleColor
-
 const SPEED = 0.0
 const JUMP_VELOCITY = -300.0
 
@@ -34,6 +36,8 @@ func change_color():
 	set_ball_color(newColor)
 
 func _physics_process(delta: float) -> void:
+	if(is_damaged):
+		return
 	velocity += get_gravity() * delta 
 	if Input.is_action_just_pressed("jump"):
 		jump()
@@ -46,13 +50,14 @@ func jump():
 func get_current_color():
 	return current_color
 	
-func destroy():
-	play_dead_sound()
-	GLOBALS.create_particle('player_explosion', global_position)
+func handle_damage():
+	is_damaged = true
+	collision_shape_2d.queue_free()
+	sprite_2d.visible = false              
+	play_destroy_sound()
+	await particle_explosion()
+	GLOBALS.game_over()
 	queue_free()
-	
-func play_dead_sound():
-	GLOBALS.play_destroy_sound()
 	
 func add_score(points: int):
 	star_pickup.play()
@@ -61,3 +66,22 @@ func add_score(points: int):
 
 func get_score():
 	return GLOBALS.get_score()
+
+func particle_explosion():
+	var selected_particle = GLOBALS.player_explosion  
+	var new_particle: Node = selected_particle.instantiate()
+	new_particle.position = position
+	get_tree().current_scene.add_child(new_particle)
+	await get_tree().create_timer(1).timeout
+	if(new_particle):
+		GLOBALS.destroy_particle(new_particle)
+
+func play_destroy_sound():
+	var audio_player = AudioStreamPlayer2D.new()
+	audio_player.stream = GLOBALS.destroy_sound
+	audio_player.position = Vector2.ZERO
+	audio_player.volume_db = 0
+	audio_player.bus = 'SFX'
+	get_tree().current_scene.add_child(audio_player)
+	audio_player.play()
+	audio_player.finished.connect(func(): audio_player.queue_free())

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://den4o1fninv6b"]
+
+[ext_resource type="Script" uid="uid://b83puinf40l0k" path="res://Obstacles/Double_Circle/double_circle.gd" id="1_3dfh5"]
+[ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacles/Circle/circle_obstacle.tscn" id="2_33wyx"]
+
+[node name="Double_Circle" type="Node2D"]
+script = ExtResource("1_3dfh5")
+
+[node name="Left" parent="." instance=ExtResource("2_33wyx")]
+position = Vector2(-75, 0)
+rotation = 1.58482
+
+[node name="Right" parent="." instance=ExtResource("2_33wyx")]
+position = Vector2(75, -1)
+rotation = 1.55057
+scale = Vector2(1, -1)

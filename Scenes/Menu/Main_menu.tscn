@@ -1,34 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://gciok4vgkxka"]
+[gd_scene load_steps=11 format=3 uid="uid://gciok4vgkxka"]
 
-[ext_resource type="Script" uid="uid://cxs3knvadbu08" path="res://Scenes/Menu/Menu.gd" id="1_gimvo"]
-[ext_resource type="AudioStream" uid="uid://cyvljbfla1lpl" path="res://Sounds/Music/Menu.ogg" id="2_tos7m"]
-[ext_resource type="Texture2D" uid="uid://c7gul1v4ukvco" path="res://Assets/ui/button_play_hover.svg" id="3_6fkr2"]
-[ext_resource type="Texture2D" uid="uid://cluwj4au23hjs" path="res://Assets/ui/button_play.svg" id="3_28cy5"]
-[ext_resource type="Texture2D" uid="uid://cbwtwepubrs6w" path="res://Assets/ui/button_credits.svg" id="4_6fkr2"]
-[ext_resource type="Texture2D" uid="uid://l165ibo4seaw" path="res://Assets/bg.svg" id="6_lq7j1"]
-[ext_resource type="PackedScene" uid="uid://dp7tp5oyrrmqp" path="res://Scenes/TransitionManager/transition_manager.tscn" id="7_6je35"]
+[ext_resource type="Script" uid="uid://cxs3knvadbu08" path="res://Scenes/Menu/menu.gd" id="1_w1xia"]
+[ext_resource type="AudioStream" uid="uid://cyvljbfla1lpl" path="res://Sounds/Music/Menu.ogg" id="2_nbh3q"]
+[ext_resource type="Texture2D" uid="uid://bvebnqc6pc83a" path="res://Assets/background/bg_ jumping_ball_2.svg" id="3_4qbh4"]
+[ext_resource type="Texture2D" uid="uid://dgh46x3pc6ept" path="res://Assets/ui/button_play.svg" id="4_3ko7u"]
+[ext_resource type="Texture2D" uid="uid://c5t8wjlg68kcn" path="res://Assets/ui/button_play_pressed.svg" id="5_jqrnd"]
+[ext_resource type="Texture2D" uid="uid://dvepimhnbdf78" path="res://Assets/ui/button_play_hover.svg" id="6_2sy2r"]
+[ext_resource type="Texture2D" uid="uid://c40uucupxgur0" path="res://Assets/ui/button_credits.svg" id="7_ygblk"]
+[ext_resource type="Texture2D" uid="uid://cpic0ilg0xwhc" path="res://Assets/ui/button_credits_pressed.svg" id="8_cbedn"]
+[ext_resource type="Texture2D" uid="uid://bcbey52fsiftg" path="res://Assets/ui/button_credits_hover.svg" id="9_7sb5i"]
+[ext_resource type="PackedScene" uid="uid://dp7tp5oyrrmqp" path="res://Scenes/TransitionManager/transition_manager.tscn" id="10_jmiel"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 401.0
 offset_bottom = 804.0
-script = ExtResource("1_gimvo")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(210, 171)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_lq7j1")
+script = ExtResource("1_w1xia")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_tos7m")
+stream = ExtResource("2_nbh3q")
 autoplay = true
 parameters/looping = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(201, 401)
+scale = Vector2(0.995, 1.005)
+texture = ExtResource("3_4qbh4")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 401.0
-offset_bottom = 803.0
+offset_left = 3.0
+offset_top = 140.0
+offset_right = 404.0
+offset_bottom = 943.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
@@ -43,8 +48,9 @@ alignment = 1
 [node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("3_28cy5")
-texture_hover = ExtResource("3_6fkr2")
+texture_normal = ExtResource("4_3ko7u")
+texture_pressed = ExtResource("5_jqrnd")
+texture_hover = ExtResource("6_2sy2r")
 
 [node name="BoxContainer2" type="BoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -53,9 +59,11 @@ alignment = 1
 [node name="Credits" type="TextureButton" parent="HBoxContainer/VBoxContainer/BoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("4_6fkr2")
+texture_normal = ExtResource("7_ygblk")
+texture_pressed = ExtResource("8_cbedn")
+texture_hover = ExtResource("9_7sb5i")
 
-[node name="TransitionManager" parent="." instance=ExtResource("7_6je35")]
+[node name="TransitionManager" parent="." instance=ExtResource("10_jmiel")]
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BoxContainer2/Credits" to="." method="_on_credits_pressed"]

@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://blgpptf521cvh"
-path="res://.godot/imported/Destroy.ogg-f25298e4388ba146ae652c92abdcaa33.oggvorbisstr"
+path="res://.godot/imported/destroy.ogg-80888f10d861a9e3f139fbc0c88f1e87.oggvorbisstr"
 
 [deps]
 
-source_file="res://Sounds/Effects/Destroy.ogg"
-dest_files=["res://.godot/imported/Destroy.ogg-f25298e4388ba146ae652c92abdcaa33.oggvorbisstr"]
+source_file="res://Sounds/Effects/destroy.ogg"
+dest_files=["res://.godot/imported/destroy.ogg-80888f10d861a9e3f139fbc0c88f1e87.oggvorbisstr"]
 
 [params]
 

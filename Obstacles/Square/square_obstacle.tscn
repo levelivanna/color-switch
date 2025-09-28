@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://hqsb8nrno2da"]
+
+[ext_resource type="Script" uid="uid://d18o5b3a0xflu" path="res://Obstacles/Square/square_obstacle.gd" id="1_wbl0d"]
+[ext_resource type="Script" uid="uid://oae5g8rfrc48" path="res://Obstacles/Scripts/violet.gd" id="2_o5yrs"]
+[ext_resource type="Script" uid="uid://23yx00gp47qq" path="res://Obstacles/Scripts/orange.gd" id="4_o5yrs"]
+[ext_resource type="Script" uid="uid://cd7aq3f37b5tk" path="res://Obstacles/Scripts/yellow.gd" id="5_lricf"]
+[ext_resource type="Script" uid="uid://b7p2djsc68exl" path="res://Obstacles/Scripts/green.gd" id="6_xucbk"]
+[ext_resource type="Texture2D" uid="uid://p2nrwkknxfta" path="res://Assets/parts/square-obstacle.png" id="7_qrk84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbl0d"]
+size = Vector2(131.341, 15.005)
+
+[node name="SquareObstacle" type="Node2D" groups=["obstacle"]]
+script = ExtResource("1_wbl0d")
+
+[node name="Violet" type="Area2D" parent="."]
+script = ExtResource("2_o5yrs")
+
+[node name="VioletCollision" type="CollisionShape2D" parent="Violet"]
+position = Vector2(-65.6805, -7.83126)
+rotation = 1.55984
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Orange" type="Area2D" parent="."]
+script = ExtResource("4_o5yrs")
+
+[node name="OrangeCollision" type="CollisionShape2D" parent="Orange"]
+position = Vector2(-8, 65.5025)
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Yellow" type="Area2D" parent="."]
+script = ExtResource("5_lricf")
+
+[node name="YellowCollision" type="CollisionShape2D" parent="Yellow"]
+position = Vector2(7, -66)
+rotation = 0.00353503
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Green" type="Area2D" parent="."]
+script = ExtResource("6_xucbk")
+
+[node name="GreenCollision" type="CollisionShape2D" parent="Green"]
+position = Vector2(66, 8)
+rotation = 1.56492
+shape = SubResource("RectangleShape2D_wbl0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+texture = ExtResource("7_qrk84")

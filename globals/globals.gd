@@ -5,6 +5,7 @@ var star_explosion = preload("res://Star/star_particles.tscn")
 var destroy_sound = preload("res://Sounds/Effects/Destroy.ogg")
 var _score = 0
 var _record_score = 0
+var increase_speed_score = 10
 
 const SCENE = {
 	LEVEL_1 = "res://Scenes/Game/Game.tscn",
@@ -13,7 +14,7 @@ const SCENE = {
 	MENU = "res://Scenes/Menu/Main_menu.tscn"
 }
 
-const CIRCLE_COLOR_SCENE = preload("res://CircleColor/CircleColor.tscn")
+const CIRCLE_COLOR_SCENE = preload("res://Circle_Color/circle_color.tscn")
 const STAR_SCENE = preload("res://Star/Star.tscn")
 
 const COLOR = {

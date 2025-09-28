@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://70dcfh3vvqaq"
+path="res://.godot/imported/last score.ogg-ea6ef865da9f828c0b3ef6209a743d44.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Effects/last score.ogg"
+dest_files=["res://.godot/imported/last score.ogg-ea6ef865da9f828c0b3ef6209a743d44.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

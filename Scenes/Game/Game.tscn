@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=18 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Scenes/Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://den4o1fninv6b" path="res://Obstacles/Double_Circle/double_circle.tscn" id="10_3586x"]
 [ext_resource type="Texture2D" uid="uid://bneamsjkopmo1" path="res://Assets/ui/pause.svg" id="13_edkrd"]
 [ext_resource type="PackedScene" uid="uid://dxyoal2p2n0ig" path="res://Scenes/Pause/pause.tscn" id="14_bsqcq"]
+[ext_resource type="Texture2D" uid="uid://dw0vpfehpwcd3" path="res://Assets/ui/start.png" id="15_8e3kh"]
 [ext_resource type="PackedScene" uid="uid://dp7tp5oyrrmqp" path="res://Scenes/TransitionManager/transition_manager.tscn" id="15_jf0ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
@@ -83,5 +84,9 @@ texture_normal = ExtResource("13_edkrd")
 z_index = 1000
 
 [node name="TransitionManager" parent="." instance=ExtResource("15_jf0ra")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(200, 850)
+texture = ExtResource("15_8e3kh")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Node2D/PauseButton" to="." method="_on_pause_button_pressed"]

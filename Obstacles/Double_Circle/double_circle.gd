@@ -11,6 +11,8 @@ func _ready() -> void:
 	left.star = null
 	right.circle_color = null
 	rotation_speed = 0
+	can_invert_ratation = false
+	
 
 func set_star_position():
 	super.set_star_position()

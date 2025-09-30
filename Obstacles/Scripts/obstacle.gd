@@ -9,6 +9,9 @@ var star_scene: PackedScene = GLOBALS.STAR_SCENE
 var circle_color_scene: PackedScene = GLOBALS.CIRCLE_COLOR_SCENE
 var circle_color: Node
 var star: Node
+const ROTATION_INTERVAL = 7
+var rotation_timer = ROTATION_INTERVAL
+var can_invert_ratation = false
 
 var _rotation_direction = [1, -1]
 var _generate_circle_color_percentege = 0.5
@@ -24,11 +27,20 @@ func _ready() -> void:
 	can_generate_circle_color = rand < _generate_circle_color_percentege
 	circle_color = circle_color_scene.instantiate()
 	circle_color.position = global_position
+	if(GLOBALS.get_score() > 5):
+		can_invert_ratation = true
 
 func _process(delta: float) -> void:
 	rotation_degrees += rotation_speed * delta
+	rotation_timer = rotation_timer - delta
+	_procces_invert_rotation()
 	if _can_destroy_self():
 		destroy()
+		
+func _procces_invert_rotation():
+	if(rotation_timer < 0 && can_invert_ratation):
+		rotation_speed = rotation_speed * -1
+		rotation_timer = ROTATION_INTERVAL
 
 func destroy():
 	queue_free()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy8ea582l53lm"]
+
+[ext_resource type="Script" uid="uid://cmwq8ctkim0kw" path="res://point_follow.gd" id="1_7yrx5"]
+[ext_resource type="PackedScene" uid="uid://divvud2vcw6n6" path="res://obstacle_point.tscn" id="1_ohxmk"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotation = -3.12861
+progress = 294.754
+script = ExtResource("1_7yrx5")
+
+[node name="Point" parent="." instance=ExtResource("1_ohxmk")]

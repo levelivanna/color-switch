@@ -7,7 +7,6 @@ extends Control
 func _ready() -> void:
 	_process_score()
 	set_text_values()
-	transition_manager.fade_out()
 
 func _process_score():
 	var score = GLOBALS.get_score()

@@ -8,6 +8,9 @@ var is_damaged = false
 @onready var jump_ball: AudioStreamPlayer2D = $JumpBall
 @onready var star_pickup: AudioStreamPlayer2D = $StarPickup
 @onready var circle_color: AudioStreamPlayer2D = $CircleColor
+@onready var destroy_sfx: AudioStreamPlayer2D = $DestroySFX
+@onready var game: Node2D = $".."
+
 @export var colors: Array[Color] = [
 	GLOBALS.COLOR.GREEN,
 	GLOBALS.COLOR.YELLOW,
@@ -17,11 +20,14 @@ var is_damaged = false
 const SPEED = 0.0
 const JUMP_VELOCITY = -300.0
 
+var explosion_gpu_particle: GPUParticles2D
+
 func _ready():
 	randomize()
 	screen_center = get_viewport().size.x / 2
 	global_position.x = screen_center
 	set_ball_color(colors.pick_random())
+	
 	
 func set_ball_color(new_color: Color):
 	current_color = new_color
@@ -56,8 +62,8 @@ func handle_damage():
 	sprite_2d.visible = false              
 	play_destroy_sound()
 	await particle_explosion()
-	GLOBALS.game_over()
-	queue_free()
+	game.game_over()
+	
 	
 func add_score(points: int):
 	star_pickup.play()
@@ -66,22 +72,18 @@ func add_score(points: int):
 
 func get_score():
 	return GLOBALS.get_score()
+	
+func on_finish_explosion():
+	GLOBALS.game_over()
 
 func particle_explosion():
 	var selected_particle = GLOBALS.player_explosion  
-	var new_particle: Node = selected_particle.instantiate()
-	new_particle.position = position
-	get_tree().current_scene.add_child(new_particle)
+	var new_particle_node: Node = selected_particle.instantiate()
+	new_particle_node.position = position
+	get_tree().current_scene.add_child(new_particle_node)
 	await get_tree().create_timer(1).timeout
-	if(new_particle):
-		GLOBALS.destroy_particle(new_particle)
+		
 
 func play_destroy_sound():
-	var audio_player = AudioStreamPlayer2D.new()
-	audio_player.stream = GLOBALS.destroy_sound
-	audio_player.position = Vector2.ZERO
-	audio_player.volume_db = 0
-	audio_player.bus = 'SFX'
-	get_tree().current_scene.add_child(audio_player)
-	audio_player.play()
-	audio_player.finished.connect(func(): audio_player.queue_free())
+	destroy_sfx.play()
+	

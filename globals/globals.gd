@@ -2,20 +2,20 @@ extends Node
 
 var player_explosion = preload("res://Player/explosion.tscn")
 var star_explosion = preload("res://Star/star_particles.tscn")
-var destroy_sound = preload("res://Sounds/Effects/Destroy.ogg")
+var destroy_sound = preload("res://Sounds/Effects/destroy.ogg")
 var _score = 0
 var _record_score = 0
 var increase_speed_score = 10
 
 const SCENE = {
-	LEVEL_1 = "res://Scenes/Game/Game.tscn",
-	CREDITS = "res://Scenes/Credits/Credits.tscn",
-	GAME_OVER = "res://Scenes/GameOver/Game_over.tscn",
-	MENU = "res://Scenes/Menu/Main_menu.tscn"
+	LEVEL_1 = "res://Scenes/Game/game.tscn",
+	CREDITS = "res://Scenes/Credits/credits.tscn",
+	GAME_OVER = "res://Scenes/GameOver/game_over.tscn",
+	MENU = "res://Scenes/Menu/main_menu.tscn"
 }
 
 const CIRCLE_COLOR_SCENE = preload("res://Circle_Color/circle_color.tscn")
-const STAR_SCENE = preload("res://Star/Star.tscn")
+const STAR_SCENE = preload("res://Star/star.tscn")
 
 const COLOR = {
 	ORANGE = Color("#FEC9A7"),
@@ -27,8 +27,6 @@ const COLOR = {
 func create_particle(particle_name: String, position: Vector2):
 	var selected_particle: PackedScene
 	match particle_name:
-		'player_explosion':
-			selected_particle = player_explosion
 		'star_explosion':
 			selected_particle = star_explosion
 	var new_particle: Node = selected_particle.instantiate()
@@ -36,20 +34,10 @@ func create_particle(particle_name: String, position: Vector2):
 	get_tree().current_scene.add_child(new_particle)
 	await get_tree().create_timer(1).timeout
 	destroy_particle(new_particle)
-	if particle_name == 'player_explosion':
-		game_over()
 	
 func destroy_particle(particle):
 	particle.queue_free()
 	
-func play_destroy_sound():
-	var player = AudioStreamPlayer2D.new()
-	player.stream = destroy_sound
-	player.position = Vector2.ZERO
-	player.volume_db = 0
-	get_tree().current_scene.add_child(player)
-	player.play()
-	player.finished.connect(func(): player.queue_free())
 
 func set_record(new_record: int):
 	_record_score = new_record
@@ -63,7 +51,7 @@ func get_record():
 func get_score():
 	return _score
 	
-func game_over():
+func go_to_game_over_screen():
 	get_tree().change_scene_to_file(SCENE.GAME_OVER)
 
 func retry():

@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ci476flt6hl7n"]
+[gd_scene load_steps=17 format=3 uid="uid://ci476flt6hl7n"]
 
 [ext_resource type="Script" uid="uid://bqqjlw3j58w8s" path="res://Scenes/Game/game.gd" id="1_37esa"]
 [ext_resource type="PackedScene" uid="uid://dw2fegbitnv1m" path="res://Player/Player.tscn" id="2_jxerj"]
 [ext_resource type="AudioStream" uid="uid://cg13lrv1n388a" path="res://Sounds/Music/Background_music.ogg" id="2_oscxy"]
 [ext_resource type="PackedScene" uid="uid://hqsb8nrno2da" path="res://Obstacles/Square/square_obstacle.tscn" id="4_fuqhk"]
-[ext_resource type="Script" uid="uid://bvgjxghdd8edq" path="res://Scenes/Game/camera_2d.gd" id="6_ghvq8"]
 [ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="6_ti1oi"]
 [ext_resource type="PackedScene" uid="uid://dwq6boeism0s7" path="res://Obstacles/Double_Molino/double_molino.tscn" id="7_1q8bt"]
 [ext_resource type="PackedScene" uid="uid://5gnatisvrf44" path="res://Obstacles/Circle/circle_obstacle.tscn" id="8_eqev2"]
@@ -34,11 +33,14 @@ parameters/looping = true
 [node name="Ball" parent="." instance=ExtResource("2_jxerj")]
 position = Vector2(194, 781)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(202, 403)
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+position = Vector2(0, -354)
 scale = Vector2(0.6, 0.6)
-script = ExtResource("6_ghvq8")
-player = NodePath("../Ball")
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = 1.0
+drag_top_margin = 0.5
+drag_bottom_margin = 0.5
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 808)

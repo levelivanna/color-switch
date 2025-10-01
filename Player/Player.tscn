@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw3grkk3txtfe" path="res://Player/player.gd" id="1_kpjcp"]
 [ext_resource type="AudioStream" uid="uid://nvkn6g2w1ykp" path="res://Sounds/Effects/Jump Balll.ogg" id="2_ddoul"]
-[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://Assets/parts/player.png" id="2_q3lat"]
+[ext_resource type="Texture2D" uid="uid://i25hptis43or" path="res://assets/parts/player.png" id="2_q3lat"]
 [ext_resource type="AudioStream" uid="uid://cn7k0s701cqt3" path="res://Sounds/Effects/Star Pickup.ogg" id="5_8g4oa"]
 [ext_resource type="AudioStream" uid="uid://c8r3ddwqqr2ma" path="res://Sounds/Effects/circle_color.ogg" id="6_6ysni"]
 [ext_resource type="AudioStream" uid="uid://blgpptf521cvh" path="res://Sounds/Effects/destroy.ogg" id="6_vlldt"]

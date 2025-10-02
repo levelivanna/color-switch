@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://br4h1bxuq6dyk"]
 
-[ext_resource type="Script" uid="uid://fer4cy5omvb7" path="res://Scenes/Credits/credits.gd" id="1_mdxjw"]
-[ext_resource type="Texture2D" uid="uid://cn8ifnfmo50ba" path="res://Assets/ui/button_back.svg" id="2_jdyel"]
+[ext_resource type="Script" uid="uid://fer4cy5omvb7" path="res://Scenes/Credits/Credits.gd" id="1_mdxjw"]
+[ext_resource type="Texture2D" uid="uid://cn8ifnfmo50ba" path="res://assets/ui/button_back.svg" id="2_jdyel"]
 [ext_resource type="AudioStream" uid="uid://du0a0oxcg8qwe" path="res://Sounds/Music/credits_menu.ogg" id="2_l755l"]
-[ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://Assets/fonts/vag_round.ttf" id="2_mrcp2"]
-[ext_resource type="Texture2D" uid="uid://cy5xg33tq4r7c" path="res://Assets/ui/button_bacck_pressed.svg" id="3_l755l"]
-[ext_resource type="Texture2D" uid="uid://clpyoaiuocp17" path="res://Assets/ui/button_bacck_hover.svg" id="4_thk3a"]
+[ext_resource type="FontFile" uid="uid://ba6guyu73niut" path="res://assets/fonts/vag_round.ttf" id="2_mrcp2"]
+[ext_resource type="Texture2D" uid="uid://cy5xg33tq4r7c" path="res://assets/ui/button_bacck_pressed.svg" id="3_l755l"]
+[ext_resource type="Texture2D" uid="uid://clpyoaiuocp17" path="res://assets/ui/button_bacck_hover.svg" id="4_thk3a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdyel"]
 

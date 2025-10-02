@@ -20,6 +20,7 @@ script = ExtResource("1_mdxjw")
 stream = ExtResource("2_l755l")
 volume_db = -7.0
 autoplay = true
+parameters/looping = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

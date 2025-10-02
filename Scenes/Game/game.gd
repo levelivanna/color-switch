@@ -1,5 +1,6 @@
 extends Node2D
-@onready var pause_controller: Node2D = $Pause
+@onready var pause_controller: Node2D = $CanvasLayer/Pause
+
 @onready var player: CharacterBody2D = $Ball
 @onready var transition_manager: CanvasLayer = $TransitionManager 
 

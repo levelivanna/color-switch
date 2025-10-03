@@ -6,10 +6,9 @@ var is_damaged = false
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var jump_ball: AudioStreamPlayer2D = $JumpBall
-@onready var star_pickup: AudioStreamPlayer2D = $StarPickup
-@onready var circle_color: AudioStreamPlayer2D = $CircleColor
 @onready var destroy_sfx: AudioStreamPlayer2D = $DestroySFX
 @onready var game: Node2D = $".."
+@onready var explosion_particle: GPUParticles2D = $ExplosionParticle
 
 @export var colors: Array[Color] = [
 	GLOBALS.COLOR.GREEN,
@@ -20,14 +19,17 @@ var is_damaged = false
 const SPEED = 0.0
 const JUMP_VELOCITY = -300.0
 
-var explosion_gpu_particle: GPUParticles2D
-
 func _ready():
 	randomize()
 	screen_center = get_viewport().size.x / 2
 	global_position.x = screen_center
 	set_ball_color(colors.pick_random())
+	_setup_particle()
 	
+	
+func _setup_particle():
+	explosion_particle.one_shot = true
+	explosion_particle.emitting = false
 	
 func set_ball_color(new_color: Color):
 	current_color = new_color
@@ -37,7 +39,6 @@ func change_color():
 	var newColors = colors.filter(func(color):
 		return color != current_color
 	)
-	circle_color.play()
 	var newColor = newColors.pick_random()
 	set_ball_color(newColor)
 
@@ -61,29 +62,26 @@ func handle_damage():
 	collision_shape_2d.queue_free()
 	sprite_2d.visible = false              
 	play_destroy_sound()
-	await particle_explosion()
-	game.game_over()
+	explosion_particle.restart()
 	
 	
 func add_score(points: int):
-	star_pickup.play()
 	var current_score = GLOBALS.get_score() + points
 	GLOBALS.set_score(current_score)
 
 func get_score():
 	return GLOBALS.get_score()
 	
-func on_finish_explosion():
-	GLOBALS.game_over()
-
-func particle_explosion():
-	var selected_particle = GLOBALS.player_explosion  
-	var new_particle_node: Node = selected_particle.instantiate()
-	new_particle_node.position = position
-	get_tree().current_scene.add_child(new_particle_node)
-	await get_tree().create_timer(1).timeout
-		
 
 func play_destroy_sound():
 	destroy_sfx.play()
-	
+
+func _input(event) -> void:
+	if event is InputEventScreenTouch and event.pressed:
+		jump() 
+	if event is InputEventMouseButton  and event.pressed:
+		jump()
+
+
+func _on_explosion_particle_finished() -> void:
+	game.game_over()
